@@ -181,6 +181,10 @@ void start_tcp_accept(tcp::acceptor& acceptor) {
 
 int main() {
 	try {
+		// Habilitar UTF-8 en consola
+		SetConsoleOutputCP(CP_UTF8);
+		SetConsoleCP(CP_UTF8);
+
 		tcp::acceptor acceptor(io, tcp::endpoint(tcp::v4(), 12345));
 		start_tcp_accept(acceptor);
 		start_inactivity_timer();

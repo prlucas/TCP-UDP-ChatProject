@@ -2,6 +2,7 @@
 #include <boost/asio.hpp>
 #include <thread>
 #include <chrono>
+#include <windows.h> // Para SetConsoleOutputCP y SetConsoleCP
 
 using namespace boost::asio;
 using ip::tcp;
@@ -41,6 +42,10 @@ void ping_loop() {
 }
 
 int main() {
+	// 🛠️ Habilitar UTF-8 en consola de Windows
+	SetConsoleOutputCP(CP_UTF8);
+	SetConsoleCP(CP_UTF8);
+
 	string room, password;
 	cout << "Usuario: ";
 	getline(cin, global_username);
